@@ -36,82 +36,88 @@ class _SignInState extends State<SignIn> {
               Text(" Sign-In Page allows users to access their accounts securely by entering their credentials, such as email/username and password. It typically includes options for password recovery and social media login for convenience. A well-designed sign-in page ensures a seamless and secure user experience.",
                 style: descriptionStyle,textAlign:TextAlign.left ,),
               Center(child: Image.asset("assets/man.png",scale: 5,)),
-              Form(
-                key: _formkeyy,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TextFormField(
-                        validator: (Evalue)=>Evalue?.isEmpty == true ? "enter a valid Email":null,
-        
-                        onChanged: (Evalue){
-                          setState(() {
-                            email=Evalue;
-                          });
-                        }
-        
-                      ),
-                      TextFormField(
-                          validator: (Pvalue)=>Pvalue!.length<6 == true ? "enter a valid Password":null,
-        
-                          onChanged: (Pvalue){
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Form(
+                  key: _formkeyy,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TextFormField(
+                          validator: (Evalue)=>Evalue?.isEmpty == true ? "enter a valid Email":null,
+                          decoration: textInputDecoration.copyWith(hintText:"Email"),
+
+                          onChanged: (Evalue){
                             setState(() {
-                              password=Pvalue;
+                              email=Evalue;
                             });
                           }
-        
-                      ),
-                      SizedBox(height: 30,),
-                      Text("Login with social Accounts",style: descriptionStyle,),
-                      SizedBox(height: 10,),
-                      GestureDetector(
-                        onTap: (){},
-                          child: Image.asset("assets/google.png",scale: 20,)),
-                      SizedBox(height: 10,),
-                      Row(mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Do not have an account?",style: descriptionStyle),
-                          GestureDetector(
-                            onTap: (){},
-                              child: Text("Register",style: TextStyle(fontWeight: FontWeight.w600,color: mainBlue),))
-                        ],
-                      ),
-                      SizedBox(height: 10,),
-                      GestureDetector(
-                        onTap: (){},
-                        child: Container(
-                          height: 40,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            color: bgBlack,
-                            border: Border.all(width: 2,color: mainYellow),
 
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          child: Center(child: Text("LOGIN",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),)),
                         ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      GestureDetector(
-                        onTap: (){},
-                        child: Container(
-                          height: 40,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            color: bgBlack,
-                            border: Border.all(width: 2,color: mainYellow),
+                        SizedBox(height: 20,),
+                        TextFormField(
+                            validator: (Pvalue)=>Pvalue!.length<6 == true ? "enter a valid Password":null,
+                            decoration: textInputDecoration,
 
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          child: Center(child: Text("LOGIN AS GUEST",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),)),
+                            onChanged: (Pvalue){
+                              setState(() {
+                                password=Pvalue;
+                              });
+                            }
+
                         ),
-                      ),
+                        SizedBox(height: 30,),
+                        Text("Login with social Accounts",style: descriptionStyle,),
+                        SizedBox(height: 10,),
+                        GestureDetector(
+                          onTap: (){},
+                            child: Image.asset("assets/google.png",scale: 20,)),
+                        SizedBox(height: 10,),
+                        Row(mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Do not have an account?",style: descriptionStyle),
+                            GestureDetector(
+                              onTap: (){},
+                                child: Text("Register",style: TextStyle(fontWeight: FontWeight.w600,color: mainBlue),))
+                          ],
+                        ),
+                        SizedBox(height: 10,),
+                        GestureDetector(
+                          onTap: (){},
+                          child: Container(
+                            height: 40,
+                            width: 200,
+                            decoration: BoxDecoration(
+                              color: bgBlack,
+                              border: Border.all(width: 2,color: mainYellow),
 
-        
-                    ],
-                  )
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            child: Center(child: Text("LOGIN",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),)),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        GestureDetector(
+                          onTap: (){},
+                          child: Container(
+                            height: 40,
+                            width: 200,
+                            decoration: BoxDecoration(
+                              color: bgBlack,
+                              border: Border.all(width: 2,color: mainYellow),
+
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            child: Center(child: Text("LOGIN AS GUEST",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500),)),
+                          ),
+                        ),
+
+
+                      ],
+                    )
+                ),
               )
         
             ],
